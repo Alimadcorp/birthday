@@ -31,7 +31,11 @@
     const db = getFirestore(app);
 
     let currentCollection = "public";
-
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const password = urlParams.get('password');
+      document.getElementById("password-input").value = password;
+    });
     document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("password-input").value = localStorage.getItem("passwordfb") || "";
       document.getElementById("password-form").addEventListener("submit", (e) => {
